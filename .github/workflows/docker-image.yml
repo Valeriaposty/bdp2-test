@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag Valeriaposty/web_server 
+      run: docker build . --file Dockerfile --tag Valeriaposty/web_server
+    - name: Push the image to DockerHub
+      run : docker login -u Valeriaposty -p ${{ secrets.DOCKER_TOKEN}} && docker push Valeriaposty/web_server
